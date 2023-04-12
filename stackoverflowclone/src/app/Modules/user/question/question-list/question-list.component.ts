@@ -69,7 +69,11 @@ export class QuestionListComponent implements OnInit {
         userId:this.userData.id,
       }
       this.apiService.post_Answer(question.id,body).subscribe((res)=>{
-        
+          if(res){
+
+            console.log("answer complete");
+            
+          }
       })
   }
 }
