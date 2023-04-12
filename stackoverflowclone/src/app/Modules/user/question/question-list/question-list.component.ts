@@ -12,6 +12,7 @@ export class QuestionListComponent implements OnInit {
   userData: any = [];
   questions:any=[];
   filtered_ques:any;
+  enteredAnswer:any;
   //#endregion
   constructor(
     private userService: UserService,
@@ -47,7 +48,7 @@ export class QuestionListComponent implements OnInit {
             this.questions = res;
             let user = JSON.parse(localStorage.getItem("loggedInUser"));
             let current_user = this.userData.find((user:any)=>user.email==user.email);
-
+            
             this.filtered_ques=this.questions.filter((q:any)=>q.userId==current_user.id);
             console.log("Current user questions",this.filtered_ques);
             
@@ -56,5 +57,19 @@ export class QuestionListComponent implements OnInit {
           console.log("get All questions errror:-",error);
           
       } });
+  }
+
+
+  submit(question:any){
+
+      let body = {
+        id:1,
+        body:this.enteredAnswer,
+        createdAt:Date.now(),
+        userId:this.userData.id,
+      }
+      this.apiService.post_Answer(question.id,body).subscribe((res)=>{
+        
+      })
   }
 }

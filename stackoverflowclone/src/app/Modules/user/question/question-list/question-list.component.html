@@ -7,5 +7,23 @@
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
         </div>
+        <p class="h1">Answer this question</p>
+        <form class="form">
+
+            <div class="form-outline mb-4">
+                <textarea
+                  class="form-control"
+                  id="form4Example3"
+                  rows="4"
+                  placeholder="Answer this question"
+                  formControlName="description"
+                  [(ngModel)]="enteredAnswer"
+                ></textarea>
+              </div>
+              
+              <button type="button" (click)="submit(question)">Submit</button>
+            </form>
       </div>
+
+      
 </div>

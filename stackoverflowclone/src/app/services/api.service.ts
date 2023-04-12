@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, mergeMap, throwError } from 'rxjs';
 import { Question } from '../Modals/question';
 import { environment } from 'src/environments/environment.development';
 
@@ -36,4 +36,23 @@ export class ApiService {
   deleteQuestion(id: number): Observable<Question> {
     return this.http.delete<Question>(`${this.baseUrl}/questions/${id}`);
   }
+
+  post_Answer(queId: number,data:any){
+    try {
+          return this.http.get(this.baseUrl+this.getAllQuestionsUrl+"/"+queId).pipe(
+            mergeMap((customer: any) => {
+              const currentItemArray = customer.answers;
+              currentItemArray.push(data);
+    
+              return this.http.patch(this.baseUrl+this.getAllQuestionsUrl+"/"+queId, {
+                answers: currentItemArray
+              });
+            })
+          );
+    } catch (error:any) {
+      return throwError(() => new Error(error))
+    }
+
+  }
+
 }
