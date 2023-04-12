@@ -1,43 +1,159 @@
-<form class="container" style="width:500px">
-    <!-- 2 column grid layout with text inputs for the first and last names -->
-    <div class="row mb-4">
-      <div class="col">
-        <div class="form-outline">
-          <input type="text" id="form3Example1" class="form-control" placeholder="First Name"/>
-          
+<form class="container" style="width: 500px" [formGroup]="registerForm">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <input
+          type="text"
+          id="form3Example1"
+          class="form-control"
+          placeholder="First Name"
+          formControlName="firstname"
+        />
+        <div
+          class="txt-danger"
+          *ngIf="
+            registerForm.get('firstname')?.invalid &&
+            (registerForm.get('firstname')?.dirty ||
+              registerForm.get('firstname')?.touched)
+          "
+        >
+          <span
+            class="text text-danger"
+            *ngIf="registerForm.get('firstname')?.errors?.['required']"
+            >First name is required.</span
+          >
         </div>
       </div>
-      <div class="col">
-        <div class="form-outline">
-          <input type="text" id="form3Example2" class="form-control" placeholder="Last Name"/>
-          
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <input
+          type="text"
+          id="form3Example2"
+          class="form-control"
+          placeholder="Last Name"
+          formControlName="lastname"
+        />
+        <div
+          class="txt-danger"
+          *ngIf="
+            registerForm.get('lastname')?.invalid &&
+            (registerForm.get('lastname')?.dirty ||
+              registerForm.get('lastname')?.touched)
+          "
+        >
+          <span
+            class="text text-danger"
+            *ngIf="registerForm.get('lastname')?.errors?.['required']"
+            >Name is required.</span
+          >
         </div>
       </div>
     </div>
-  
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-      <input type="email" id="form3Example3" class="form-control" placeholder="Email address" />
-      
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input
+      type="email"
+      id="form3Example3"
+      class="form-control"
+      placeholder="Email address"
+      formControlName="email"
+    />
+    <div
+      class="txt-danger"
+      *ngIf="
+        registerForm.get('email')?.invalid &&
+        (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)
+      "
+    >
+      <span
+        class="text text-danger"
+        *ngIf="registerForm.get('email')?.errors?.['required']"
+        >email is required.</span
+      >
+      <span
+        class="text text-danger"
+        *ngIf="registerForm.get('email')?.errors?.['email']"
+        >email should be valid !</span
+      >
     </div>
-  
-    <!-- Password input -->
-    <div class="form-outline mb-4">
-      <input type="password" id="form3Example4" class="form-control" placeholder="Password"/>
-     
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input
+      type="password"
+      id="form3Example4"
+      class="form-control"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <div
+      class="txt-danger"
+      *ngIf="
+        registerForm.get('password')?.invalid &&
+        (registerForm.get('password')?.dirty ||
+          registerForm.get('password')?.touched)
+      "
+    >
+      <span
+        class="text text-danger"
+        *ngIf="registerForm.get('password')?.errors?.['required']"
+        >Password is required.</span
+      >
+      <span
+        class="text text-danger"
+        *ngIf="registerForm.get('password')?.errors?.['minlength']"
+        >Minimum 8 characters are required.</span
+      >
     </div>
-  
-    <!-- Checkbox -->
-    <div class="form-check d-flex justify-content-center mb-4">
-      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-      <label class="form-check-label" for="form2Example33">
-        Subscribe to our newsletter
-      </label>
+  </div>
+  <div class="form-outline mb-4">
+    <input
+      type="password"
+      id="form3Example4"
+      class="form-control"
+      placeholder="Re-enter Password"
+      formControlName="confirmpassword"
+    />
+    <div
+      class="txt-danger"
+      *ngIf="
+        registerForm.get('confirmpassword')?.invalid &&
+        (registerForm.get('confirmpassword')?.dirty ||
+          registerForm.get('confirmpassword')?.touched)
+      "
+    >
+      <span class="text text-danger" *ngIf="registerForm.get('confirmpassword')?.errors?.['required']"
+        >Password is required.</span
+      >
+      <span class="text text-danger" *ngIf="registerForm.get('confirmpassword')?.errors?.['minlength']"
+        >Minimum 8 characters are required.</span
+      >
     </div>
-  
-    <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4 w-100">Sign up</button>
-  
-    <!-- Register buttons -->
-    
-  </form>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="form-check d-flex justify-content-center mb-4">
+    <input
+      class="form-check-input me-2"
+      type="checkbox"
+      value=""
+      id="form2Example33"
+      checked
+    />
+    <label class="form-check-label" for="form2Example33">
+      Subscribe to our newsletter
+    </label>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4 w-100" (click)="submit()">
+    Sign up
+  </button>
+
+  <!-- Register buttons -->
+</form>

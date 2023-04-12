@@ -1,5 +1,12 @@
 {
-    "users":[
-        
-    ]
+  "users": [
+    {
+      "firstname": "tony",
+      "lastname": "stark",
+      "email": "tony@gmail.com",
+      "password": "tony1234",
+      "confirmpassword": "tony1234",
+      "id": 1
+    }
+  ]
 }
