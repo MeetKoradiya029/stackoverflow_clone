@@ -5,12 +5,18 @@ import { UserRoutingModule } from './user-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuestionComponent } from './question/question.component';
+import { QuestionListComponent } from './question/question-list/question-list.component';
+import { QuestionDetailsComponent } from './question/question-details/question-details.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    QuestionComponent,
+   
+    QuestionDetailsComponent
   ],
   imports: [
     CommonModule,

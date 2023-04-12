@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="card" style="width: 700px" *ngFor="let question of filtered_ques">
+        <div class="card-body">
+          <h5 class="card-title">{{question.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Asked at {{question.createdAt}}</h6>
+          <p class="card-text">{{question.body}}</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+</div>

@@ -8,5 +8,16 @@
       "confirmpassword": "tony1234",
       "id": 1
     }
+  ],
+  "questions": [
+    
+    {
+      "userId": 1,
+      "title": "Getting current date and time in JavaScript",
+      "body": "People always complain about certain questions but there are very few questions on SO that couldn't be answered by reading documentation. I love this site because it has concise answers and examples of how to do what I'm trying to do, exactly like this question does. ",
+      "createdAt": "3/3/2023 @ 17:17:51",
+      "answers": [],
+      "id": 5
+    }
   ]
 }

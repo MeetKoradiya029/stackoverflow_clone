@@ -52,9 +52,7 @@ export class LoginComponent implements OnInit {
 
       if(exisiting_user){
           alert("login successfull");
-          localStorage.setItem("loggedInUser",JSON.stringify([]));
-          let users = JSON.parse(localStorage.getItem("loggedInUser"));
-  
+          localStorage.setItem("loggedInUser",JSON.stringify(exisiting_user));
           return (flag=true);       
       }else{
         alert("Invalid username or password!");
